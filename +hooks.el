@@ -48,6 +48,13 @@
   (define-key magit-status-mode-map (kbd "<tab>") #'magit-section-toggle))
 
 
+(defun bravi/rjsx-mode-hook ()
+  "Add JSX hooks"
+  (add-hook 'rjsx-mode-hook 'prettier-js-mode)
+  (add-hook 'rjsx-mode-hook 'use-eslint-from-node-modules)
+  (add-hook 'rjsx-mode-hook 'use-prettier-from-node-modules))
+
+
 ;; clojure / clojurescript
 (add-hook 'clojure-mode-hook #'bravi/clojure-mode-hook)
 
@@ -56,6 +63,6 @@
 (add-hook 'magit-mode-hook #'bravi/magit-mode-hook)
 (add-hook 'org-mode-hook #'bravi/haskell-mode-hook)
 (add-hook 'prettier-js-mode-hook #'use-prettier-from-node-modules)
-(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+(add-hook 'rjsx-mode-hook 'bravi/rjsx-mode-hook)
 (add-hook 'typescript-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
