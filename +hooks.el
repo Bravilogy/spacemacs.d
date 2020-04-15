@@ -55,6 +55,10 @@
   (add-hook 'rjsx-mode-hook 'use-prettier-from-node-modules))
 
 
+(defun bravi/python-mode-hook ()
+  (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down))
+
+
 ;; clojure / clojurescript
 (add-hook 'clojure-mode-hook #'bravi/clojure-mode-hook)
 
@@ -66,3 +70,4 @@
 (add-hook 'rjsx-mode-hook 'bravi/rjsx-mode-hook)
 (add-hook 'typescript-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'python-mode-hook #'bravi/python-mode-hook)
